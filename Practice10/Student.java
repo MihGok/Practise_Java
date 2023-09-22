@@ -1,29 +1,25 @@
 package Practise_Java.Practice10;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Student implements Comparable<Student> {
-    private int kurs;
+    private int course;
     private String name;
     private String surname;
     private String profile;
-    private int gruppa;
+    private int group;
     private float score;
     public float getScore() {
         return score;
     }
-
-    public Student(int kurs, String name, String surname, String profile, int gruppa,int score) {
-        this.kurs = kurs;
+    public Student(int course, String name, String surname, String profile, int group,int score) {
+        this.course = course;
         this.name = name;
         this.surname = surname;
         this.profile = profile;
-        this.gruppa = gruppa;
+        this.group = group;
         this.score = score;
     }
 
-    public void setKurs(int kurs) {
-        this.kurs = kurs;
+    public void setKurs(int course) {
+        this.course = course;
     }
 
     public void setName(String name) {
@@ -38,12 +34,12 @@ public class Student implements Comparable<Student> {
         this.profile = profile;
     }
 
-    public void setGruppa(int gruppa) {
-        this.gruppa = gruppa;
+    public void setGroup(int group) {
+        this.group = group;
     }
 
-    public int getKurs() {
-        return kurs;
+    public int getCours() {
+        return course;
     }
 
     public String getName() {
@@ -58,18 +54,18 @@ public class Student implements Comparable<Student> {
         return profile;
     }
 
-    public int getGruppa() {
-        return gruppa;
+    public int getGroup() {
+        return group;
     }
 
-    @Override
-    public int compareTo(Student student) {
-        if(score == student.getScore()){
-            return 0;
+        @Override
+        public int compareTo(Student student) {
+            if(score == student.getScore()){
+                return 0;
+            }
+            if (score<student.getScore()){
+                return 1;
+            }
+            return -1;
         }
-        if (score<student.getScore()){
-            return 1;
-        }
-        return -1;
-    }
 }

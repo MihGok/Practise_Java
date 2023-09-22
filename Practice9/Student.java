@@ -4,18 +4,18 @@ public class Student {
     public static void insertionSort(Integer ... arr) {
         for (int cur =0;cur<arr.length;cur++){
             int val = arr[cur];
-            int i = cur-1;
-            for (;i>=0;i--){
-                if (val<arr[i]){
-                    arr[i+1] = arr[i];
+            int index = cur-1;
+            for (;index>=0;index--){
+                if (val<arr[index]){
+                    arr[index+1] = arr[index];
                 }else{
                     break;
                 }
             }
-            arr[i+1] = val;
+            arr[index+1] = val;
         }
-        for (int j = 0;j<arr.length;j++){
-            System.out.print(arr[j] + "  ");
+        for (int curStScore = 0;curStScore<arr.length;curStScore++){
+            System.out.print(arr[curStScore] + "  ");
         }
     }
 }

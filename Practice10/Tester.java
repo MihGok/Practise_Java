@@ -31,7 +31,6 @@ class Tester{
         Collections.sort(arr1);
         System.out.println("Sorted list of the second group is: ");
         test.output(arr1);
-        System.out.println("\n\n");
         List<Student> fin = test.create(arr,arr1);
         System.out.println("Sorted list of all students is: ");
         Collections.sort(fin);

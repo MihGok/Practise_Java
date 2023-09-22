@@ -10,23 +10,27 @@ public class MovableCircle extends Movable {
         this.ySpeed = ySpeed;
         this.radius = radius;
     }
-    public String toString(){
-        return "Coordinates are: " + centerX + " " + centerY +" radius is " + radius + " It moves with speed " + xSpeed+ " " + ySpeed;
+
+    @Override
+    public String toString() {
+        return "MovableCircle{" +
+                "centerX=" + centerX +
+                ", centerY=" + centerY +
+                ", xSpeed=" + xSpeed +
+                ", ySpeed=" + ySpeed +
+                ", radius=" + radius +
+                '}';
     }
+
     public void moveUp() {
         centerX += xSpeed;
     }
-
-    ;
-
     public void moveDown() {
         centerY -= ySpeed;
     }
-
     public void moveLeft() {
         centerX -= xSpeed;
     }
-
     public void moveRight() {
         centerY += ySpeed;
     }

@@ -41,9 +41,7 @@ public class Main extends JComponent implements KeyListener, ActionListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -51,6 +49,7 @@ public class Main extends JComponent implements KeyListener, ActionListener {
         if (rect.x + 10 + rect.width < 600 & rect.x > 0 & rect.y + 30 + rect.height < 600 & rect.y > 0) {
             if (e.getExtendedKeyCode() == KeyEvent.VK_RIGHT) {
                 rect.setLocation(rect.x + 10, rect.y);
+
             }
             if (e.getExtendedKeyCode() == KeyEvent.VK_LEFT) {
                 rect.setLocation(rect.x - 10, rect.y);

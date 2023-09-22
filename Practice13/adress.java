@@ -3,7 +3,7 @@ package Practise_Java.Practice13;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class adress {
+public class Adress {
     public static void sorted(String str) {
         StringTokenizer res = new StringTokenizer(str, ",.;");
         while (res.hasMoreTokens())

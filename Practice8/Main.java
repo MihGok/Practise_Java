@@ -1,29 +1,24 @@
 package Practise_Java.Practice8;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    private int otvet1 = 0;
-    private int k =0 ;
-    private int d = 0;
-    static private int z = 2;
+    private int result = 0;
+    static private int num1 = 2;
     static private int i =2;
-    public int summaCifr(int number){
+    public int SummaDigits(int number){
         if (number>=9){
-            otvet1+=number%10;
+            result+=number%10;
             number = number/=10;
-            summaCifr(number);
+            SummaDigits(number);
             return 0;
         }
-        otvet1+=number;
+        result+=number;
         return 0;
     }
     public void getRes(){
-        System.out.println(otvet1);
+        System.out.println(result);
     }
-    public static int Recursion(int len, int sum, int k, int s) {
-        if (len == k) {
-            if (sum == s) {
+    public static int Recursion(int len, int sum, int curLen, int curSum) {
+        if (len == curLen) {
+            if (sum == curSum) {
                 return 1;
             } else {
                 return 0;
@@ -32,7 +27,7 @@ public class Main {
         int c = (len == 0 ? 1 : 0);
         int res = 0;
         for (int i = c; i < 10; i++) {
-            res += Recursion(len + 1, sum + i, k, s);
+            res += Recursion(len + 1, sum + i, curLen,curSum);
         }
         return res;
     }
@@ -46,23 +41,23 @@ public class Main {
         }
         return true;
     }
-    public static void Recurs(int n) {
-        if (z > n / 2) {
-            System.out.println(n);
+    public static void Recurs(int numb) {
+        if (num1 > numb / 2) {
+            System.out.println(numb);
             return;
         }
-        if (n % z == 0) {
-            System.out.print(z + "*");
-            Recurs(n / z);
+        if (numb % num1 == 0) {
+            System.out.print(num1 + "*");
+            Recurs(numb / num1);
         }
         else {
-            ++z;
-            Recurs(n);
+            ++num1;
+            Recurs(numb);
         }
     }
     public static void main(String[] args) {
         Main test5 = new Main();
-        test5.summaCifr(957);
+        test5.SummaDigits(957);
         System.out.print("Summ of 157 is " );
         test5.getRes();
         System.out.print("Amount of numbers with 3 digits and summ 15 is ");

@@ -62,7 +62,6 @@ public class Calculator implements ActionListener {
         textField.setBounds(10, 40, 270, 40);
         textField.setFont(new Font("Arial", Font.BOLD, 20));
         textField.setEditable(false);
-        textField.setText("0");
         textField.setHorizontalAlignment(SwingConstants.RIGHT);
         frame.add(textField);
 
@@ -189,6 +188,7 @@ public class Calculator implements ActionListener {
         buttonClear.setBackground(Color.red);
         buttonClear.setForeground(Color.white);
         frame.add(buttonClear);
+        textField.setText("0");
 
     }
 

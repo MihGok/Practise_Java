@@ -25,8 +25,8 @@ public class Date {
                     }else{
                         System.out.println("Hour is incorrect");
                     }
-                }
-                System.out.println("Day is incorrect");
+                }else{
+                System.out.println("Day is incorrect");}
             }else{
                 System.out.println("Month is incorrect");
             }

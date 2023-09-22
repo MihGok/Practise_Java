@@ -6,7 +6,7 @@ public class Tester {
         MovablePoint point1 = new MovablePoint(90,35,26,34);
         circle1.moveDown();
         point1.moveUp();
-        System.out.println(circle1.toString());
-        System.out.println(point1.toString());
+        System.out.println(circle1);
+        System.out.println(point1);
     }
 }

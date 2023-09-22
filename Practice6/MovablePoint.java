@@ -3,8 +3,14 @@ package Practise_Java.Practice6;
 public class MovablePoint extends Movable {
     private int pointX, pointY, xSpeed, ySpeed;
 
+    @Override
     public String toString() {
-        return "Coordinates are: " + pointX + " " + pointY + " It moves with speed " + xSpeed + " " + ySpeed;
+        return "MovablePoint{" +
+                "pointX=" + pointX +
+                ", pointY=" + pointY +
+                ", xSpeed=" + xSpeed +
+                ", ySpeed=" + ySpeed +
+                '}';
     }
 
     public MovablePoint(int pointX, int pointY, int xSpeed, int ySpeed) {
