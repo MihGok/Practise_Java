@@ -51,7 +51,7 @@ public class Calculator implements ActionListener {
         frame.getContentPane().setBackground(new Color(112,45,45) );
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.setLocation(350,200);
+        frame.setLocation(550,200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -235,15 +235,14 @@ public class Calculator implements ActionListener {
         }
         else if (source == buttonDelete) {
             int length = textField.getText().length();
-            System.out.println(length);
             int number = length - 1;
-            if (length >0) {
+            if (length >1) {
                 StringBuilder back = new StringBuilder(textField.getText());
                 back.deleteCharAt(number);
                 textField.setText(back.toString());
             }
-            if (textField.getText().endsWith("")) {
-                label.setText("on");textField.setText("0");
+            if (textField.getText().endsWith("0")) {
+                label.setText("on");
             }
         } else if (source == buttonZero) {
             if (textField.getText().equals("0")) {
@@ -475,7 +474,7 @@ public class Calculator implements ActionListener {
     public void disable() {
         onRadioButton.setEnabled(true);
         offRadioButton.setEnabled(false);
-        textField.setText("Calculator is turned of");
+        textField.setText("Calculator is turned off");
         label.setText("off");
         label.setForeground(Color.RED);
         buttonClear.setEnabled(false);
