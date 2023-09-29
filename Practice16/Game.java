@@ -1,5 +1,7 @@
 package Practise_Java.Practice16;
 
+import org.w3c.dom.css.RGBColor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,11 +16,7 @@ public class Game implements ActionListener {
     JLabel label = new JLabel();
     JTextField textField = new JTextField();
     JButton ButtonZero = new JButton("0");
-    JTextField buttonZao = new JTextField("Welcome to ЗАО");
-    JTextField buttonCenter = new JTextField("Welcome to Center");
-    JTextField buttonWao = new JTextField("Welcome to ВАО");
-    JTextField buttonEao = new JTextField("Welcome to ЮАО");
-    JTextField buttonNao = new JTextField("Welcome to САО");
+    JTextField buttonCenter = new JTextField("Welcome to ");
     JRadioButton onRadioButton = new JRadioButton("on");
     JRadioButton offRadioButton = new JRadioButton("off");
     JButton buttonZero = new JButton("0");
@@ -42,42 +40,22 @@ public class Game implements ActionListener {
         addActionEvent();
     }
 
-    public void CheckPos() {
+    public String CheckPos() {
         int curX = MouseInfo.getPointerInfo().getLocation().x;
         int curY = MouseInfo.getPointerInfo().getLocation().y;
         if (curY > 600) {
-            buttonNao.setVisible(true);
-            buttonEao.setVisible(false);
-            buttonCenter.setVisible(false);
-            buttonWao.setVisible(false);
-            buttonZao.setVisible(false);
+            return "Север";
         } else {
             if (curY > 180 & curY < 600 & curX > 400 & curX < 615) {
-                buttonZao.setVisible(true);
-                buttonEao.setVisible(false);
-                buttonCenter.setVisible(false);
-                buttonWao.setVisible(false);
-                buttonNao.setVisible(false);
+                return "Запад";
             } else {
                 if (curX > 995 & curX < 1195 & curY < 600 & curX > 180) {
-                    buttonWao.setVisible(true);
-                    buttonZao.setVisible(false);
-                    buttonCenter.setVisible(false);
-                    buttonEao.setVisible(false);
-                    buttonNao.setVisible(false);
+                    return "Восток";
                 } else {
                     if (curY < 180) {
-                        buttonEao.setVisible(true);
-                        buttonZao.setVisible(false);
-                        buttonCenter.setVisible(false);
-                        buttonWao.setVisible(false);
-                        buttonNao.setVisible(false);
+                        return "Юг";
                     } else {
-                        buttonCenter.setVisible(true);
-                        buttonEao.setVisible(false);
-                        buttonZao.setVisible(false);
-                        buttonWao.setVisible(false);
-                        buttonNao.setVisible(false);
+                        return "Центр";
                     }
                 }
 
@@ -104,7 +82,7 @@ public class Game implements ActionListener {
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                CheckPos();
+                buttonCenter.setText("Welcome to "  +CheckPos());
             }
         });
         frame.setTitle("Calculator");
@@ -141,28 +119,12 @@ public class Game implements ActionListener {
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(onRadioButton);
         buttonGroup.add(offRadioButton);
-        buttonZao.setForeground(Color.BLACK);
-        buttonZao.setBounds(0, 350, 180, 60);
-        buttonZao.setBorder(null);
-        buttonZao.setBackground(Color.WHITE);
-        frame.add(buttonZao);
-        buttonWao.setForeground(Color.black);
-        buttonWao.setBounds(620, 350, 180, 60);
-        buttonWao.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
-        frame.add(buttonWao);
         buttonZero.setBounds(650,490,60,40);
         buttonZero.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonZero);
-        buttonEao.setBounds(250, 50, 300, 40);
-        buttonEao.setForeground(Color.BLACK);
-        buttonEao.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
-        frame.add(buttonEao);
-        buttonNao.setBounds(250, 700, 300, 40);
-        buttonNao.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
-        buttonNao.setForeground(Color.BLACK);
-        frame.add(buttonNao);
         buttonCenter.setForeground(Color.BLACK);
-        buttonCenter.setBounds(250, 300, 300, 40);
+        buttonCenter.setBackground(new Color(238,238,238));
+        buttonCenter.setBounds(350, 300, 150, 40);
         buttonCenter.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
         frame.add(buttonCenter);
         buttonSeven.setBounds(210, 370, 60, 40);
@@ -171,7 +133,6 @@ public class Game implements ActionListener {
 
         buttonEight.setBounds(370, 370, 60, 40);
         buttonEight.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonEao.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
         frame.add(buttonEight);
 
         buttonNine.setBounds(530, 370, 60, 40);
@@ -415,12 +376,7 @@ public class Game implements ActionListener {
     }
 
     public void enable() {
-        buttonEao.setVisible(true);
-        buttonNao.setVisible(true);
-        buttonWao.setVisible(true);
         buttonCenter.setVisible(true);
-        buttonZao.setVisible(true);
-        buttonEao.setVisible(true);
         offRadioButton.setForeground(Color.RED);
         textField.setForeground(Color.DARK_GRAY);
         onRadioButton.setEnabled(false);
@@ -449,12 +405,7 @@ public class Game implements ActionListener {
 
     public void disable() {
         offRadioButton.setSelected(true);
-        buttonNao.setVisible(false);
-        buttonEao.setVisible(false);
-        buttonWao.setVisible(false);
         buttonCenter.setVisible(false);
-        buttonZao.setVisible(false);
-        buttonEao.setVisible(false);
         onRadioButton.setEnabled(true);
         onRadioButton.setForeground(Color.GREEN);
         offRadioButton.setEnabled(false);
