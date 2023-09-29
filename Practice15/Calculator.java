@@ -34,6 +34,7 @@ public class Calculator implements ActionListener {
     JButton buttonSquare = new JButton("x\u00B2");
     JButton buttonReciprocal = new JButton("1/x");
     JButton buttonSqrt = new JButton("\u221A");
+
     ;
 
     Calculator() {
@@ -48,7 +49,6 @@ public class Calculator implements ActionListener {
         frame.setTitle("Calculator");
         frame.setSize(300, 490);
         frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(new Color(112,45,45) );
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setLocation(550,200);
@@ -68,14 +68,12 @@ public class Calculator implements ActionListener {
         onRadioButton.setBounds(10, 95, 60, 30);
         onRadioButton.setSelected(true);
         onRadioButton.setFont(new Font("Arial", Font.BOLD, 14));
-        onRadioButton.setBackground(Color.GREEN);
-        onRadioButton.setForeground(Color.WHITE);
+        onRadioButton.setForeground(Color.GREEN);
         frame.add(onRadioButton);
         offRadioButton.setBounds(10, 130, 60, 30);
         offRadioButton.setSelected(false);
         offRadioButton.setFont(new Font("Arial", Font.BOLD, 14));
-        offRadioButton.setBackground(Color.RED);
-        offRadioButton.setForeground(Color.white);
+        offRadioButton.setForeground(Color.RED);
         frame.add(offRadioButton);
 
         ButtonGroup buttonGroup = new ButtonGroup();
@@ -83,110 +81,99 @@ public class Calculator implements ActionListener {
         buttonGroup.add(offRadioButton);
 
         buttonSeven.setBounds(10, 230, 60, 40);
-        buttonSeven.setBackground(Color.GRAY);
         buttonSeven.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonSeven);
 
         buttonEight.setBounds(80, 230, 60, 40);
-        buttonEight.setBackground(Color.GRAY);
         buttonEight.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonEight);
 
         buttonNine.setBounds(150, 230, 60, 40);
-        buttonNine.setBackground(Color.GRAY);
+
         buttonNine.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonNine);
 
         buttonFour.setBounds(10, 290, 60, 40);
-        buttonFour.setBackground(Color.GRAY);
+
         buttonFour.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonFour);
 
         buttonFive.setBounds(80, 290, 60, 40);
-        buttonFive.setBackground(Color.GRAY);
         buttonFive.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonFive);
 
         buttonSix.setBounds(150, 290, 60, 40);
-        buttonSix.setBackground(Color.GRAY);
         buttonSix.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonSix);
 
         buttonOne.setBounds(10, 350, 60, 40);
-        buttonOne.setBackground(Color.GRAY);
+
         buttonOne.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonOne);
 
         buttonTwo.setBounds(80, 350, 60, 40);
-        buttonTwo.setBackground(Color.GRAY);
         buttonTwo.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonTwo);
 
         buttonThree.setBounds(150, 350, 60, 40);
-        buttonThree.setBackground(Color.GRAY);
+
         buttonThree.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonThree);
 
         buttonDot.setBounds(150, 410, 60, 40);
-        buttonDot.setBackground(Color.MAGENTA);
+
         buttonDot.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonDot);
 
         buttonZero.setBounds(10, 410, 130, 40);
-        buttonZero.setBackground(Color.GRAY);
+
         buttonZero.setFont(new Font("Arial", Font.BOLD, 20));
         frame.add(buttonZero);
 
         buttonEqual.setBounds(220, 350, 60, 100);
         buttonEqual.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonEqual.setBackground(new Color(239, 188, 2));
         frame.add(buttonEqual);
 
         buttonDiv.setBounds(220, 105, 60, 40);
         buttonDiv.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonDiv.setBackground(new Color(239, 188, 2));
+
         frame.add(buttonDiv);
 
         buttonSqrt.setBounds(10, 170, 60, 40);
         buttonSqrt.setFont(new Font("Arial", Font.BOLD, 18));
-        buttonSqrt.setBackground(Color.MAGENTA);
-        frame.add(buttonSqrt);
+         frame.add(buttonSqrt);
 
         buttonMul.setBounds(220, 230, 60, 40);
         buttonMul.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonMul.setBackground(new Color(239, 188, 2));
+
         frame.add(buttonMul);
 
         buttonMinus.setBounds(220, 170, 60, 40);
         buttonMinus.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonMinus.setBackground(new Color(239, 188, 2));
+
         frame.add(buttonMinus);
 
         buttonPlus.setBounds(220, 290, 60, 40);
         buttonPlus.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonPlus.setBackground(new Color(239, 188, 2));
+
         frame.add(buttonPlus);
 
         buttonSquare.setBounds(80, 170, 60, 40);
         buttonSquare.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonSquare.setBackground(Color.MAGENTA);
         frame.add(buttonSquare);
 
         buttonReciprocal.setBounds(150, 170, 60, 40);
         buttonReciprocal.setFont(new Font("Arial", Font.BOLD, 15));
-        buttonReciprocal.setBackground(Color.MAGENTA);
         frame.add(buttonReciprocal);
 
         buttonDelete.setBounds(150, 105, 60, 40);
         buttonDelete.setFont(new Font("Arial", Font.BOLD, 12));
-        buttonDelete.setBackground(Color.red);
-        buttonDelete.setForeground(Color.white);
+        buttonDelete.setForeground(Color.BLUE);
         frame.add(buttonDelete);
 
         buttonClear.setBounds(80, 105, 60, 40);
         buttonClear.setFont(new Font("Arial", Font.BOLD, 12));
-        buttonClear.setBackground(Color.red);
-        buttonClear.setForeground(Color.white);
+        buttonClear.setForeground(Color.BLUE);
         frame.add(buttonClear);
         textField.setText("0");
 
@@ -224,9 +211,11 @@ public class Calculator implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == onRadioButton) {
+
             enable();
         }
         else if (source == offRadioButton) {
+
             disable();
         }
         else if (source == buttonClear) {
@@ -442,6 +431,8 @@ public class Calculator implements ActionListener {
     }
 
     public void enable() {
+        offRadioButton.setForeground(Color.RED);
+        textField.setForeground(Color.DARK_GRAY);
         onRadioButton.setEnabled(false);
         offRadioButton.setEnabled(true);
         textField.setEnabled(true);
@@ -473,8 +464,10 @@ public class Calculator implements ActionListener {
     }
     public void disable() {
         onRadioButton.setEnabled(true);
+        onRadioButton.setForeground(Color.GREEN);
         offRadioButton.setEnabled(false);
         textField.setText("Calculator is turned off");
+        textField.setForeground(Color.RED);
         label.setText("off");
         label.setForeground(Color.RED);
         buttonClear.setEnabled(false);
