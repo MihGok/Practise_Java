@@ -125,6 +125,7 @@ public class Game implements ActionListener {
         buttonCenter.setForeground(Color.BLACK);
         buttonCenter.setBackground(new Color(238,238,238));
         buttonCenter.setBounds(350, 300, 150, 40);
+        buttonCenter.setEditable(false);
         buttonCenter.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
         frame.add(buttonCenter);
         buttonSeven.setBounds(210, 370, 60, 40);
