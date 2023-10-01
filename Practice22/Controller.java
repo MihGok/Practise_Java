@@ -1,83 +1,54 @@
-package Practise_Java.Practice17_1;
+package Practise_Java.Practice22;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.util.Random;
-public class Controller implements MouseMotionListener, ActionListener {
+
+public class Controller implements ActionListener {
     Model model;
     View view;
-    Random rand = new Random();
-    Controller(Model model, View view){
+
+    Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        view.getFrame().addMouseMotionListener(this);
+        addActionEvent();
+    }
+
+    public void addActionEvent() {
+        //Registering ActionListener to buttons
         view.onRadioButton.addActionListener(this);
         view.offRadioButton.addActionListener(this);
         view.buttonClear.addActionListener(this);
         view.buttonDelete.addActionListener(this);
+        view.buttonDiv.addActionListener(this);
+        view.buttonSqrt.addActionListener(this);
+        view.buttonSquare.addActionListener(this);
+        view.buttonReciprocal.addActionListener(this);
+        view.buttonMinus.addActionListener(this);
         view.buttonSeven.addActionListener(this);
         view.buttonEight.addActionListener(this);
         view.buttonNine.addActionListener(this);
+        view.buttonMul.addActionListener(this);
         view.buttonFour.addActionListener(this);
         view.buttonFive.addActionListener(this);
         view.buttonSix.addActionListener(this);
+        view.buttonPlus.addActionListener(this);
         view.buttonOne.addActionListener(this);
         view.buttonTwo.addActionListener(this);
         view.buttonThree.addActionListener(this);
         view.buttonEqual.addActionListener(this);
         view.buttonZero.addActionListener(this);
-        createNumber();
-    }
-    public void createNumber(){
-        model.setGuess(rand.nextInt(0,20));
-        System.out.println(model.getGuess());
-    }
-    public String Check(int curX, int curY) {
-        if (curY > 600) {
-            return "Север";
-        } else {
-            if (curY > 180 & curY < 600 & curX > 400 & curX < 615) {
-                return "Запад";
-            } else {
-                if (curX > 995 & curX < 1195 & curY < 600 & curX > 180) {
-                    return "Восток";
-                } else {
-                    if (curY < 180) {
-                        return "Юг";
-                    } else {
-                        return "Центр";
-                    }
-                }
-
-
-            }
-        }
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        String cur = model.getToOut() + Check(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
-        view.updateGUI(cur);
+        view.buttonDot.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == view.onRadioButton) {
-            model.setAmount(0);
-            createNumber();
             view.enable();
         } else if (source == view.offRadioButton) {
             view.disable();
         } else if (source == view.buttonClear) {
+            view.label.setText("on");
             view.textField.setText("0");
         } else if (source == view.buttonDelete) {
             int length = view.textField.getText().length();
@@ -88,7 +59,7 @@ public class Controller implements MouseMotionListener, ActionListener {
                 view.textField.setText(back.toString());
             }
             if (view.textField.getText().endsWith("0")) {
-                view.label.setText("Enter your number");
+                view.label.setText("on");
             }
         } else if (source == view.buttonZero) {
             if (view.textField.getText().equals("0")) {
@@ -222,25 +193,105 @@ public class Controller implements MouseMotionListener, ActionListener {
             } else {
                 view.textField.setText(view.textField.getText() + "9");
             }
+        } else if (source == view.buttonDot) {
+            if (view.textField.getText().contains(".")) {
+                return;
+            } else {
+                view.textField.setText(view.textField.getText() + ".");
+            }
+
+        } else if (source == view.buttonPlus) {
+            String str = view.textField.getText();
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            view.textField.setText("");
+            view.label.setText(str + "+");
+            model.setCalculation(1);
+        } else if (source == view.buttonMinus) {
+            String str = view.textField.getText();
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            view.textField.setText("");
+            view.label.setText(str + "-");
+            model.setCalculation(2);
+        } else if (source == view.buttonMul) {
+            String str = view.textField.getText();
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            view.textField.setText("");
+            view.label.setText(str + "x");
+            model.setCalculation(3);
+        } else if (source == view.buttonDiv) {
+            String str = view.textField.getText();
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            view.textField.setText("");
+            view.label.setText(str + "/");
+            model.setCalculation(4);
+        } else if (source == view.buttonSqrt) {
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            Double sqrt = Math.sqrt(model.getNumber());
+            view.textField.setText(Double.toString(sqrt));
+            view.label.setText(Double.toString(model.getNumber()) + "**0.5");
+        } else if (source == view.buttonSquare) {
+            String str = view.textField.getText();
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            double square = Math.pow(model.getNumber(), 2);
+            String string = Double.toString(square);
+            if (string.endsWith(".0")) {
+                view.textField.setText(string.replace(".0", ""));
+            } else {
+                view.textField.setText(string);
+            }
+            view.label.setText(str + "**2");
+        }
+        else if (source == view.buttonReciprocal) {
+            model.setNumber(Double.parseDouble(view.textField.getText()));
+            double reciprocal = 1 / model.getNumber();
+            String string = Double.toString(reciprocal);
+            if (string.endsWith(".0")) {
+                view.textField.setText(string.replace(".0", ""));
+            } else {
+                view.textField.setText(string);
+            }
         } else if (source == view.buttonEqual) {
-            if (model.getAmount() == 3) {
-                view.label.setText("You are not worthy");
-                view.textField.setText("Become better and return");
-                view.disable();
+            //Setting functionality for equal(=) button
+            switch (model.getCalculation()) {
+                case 1:
+                    model.setAnswer(model.getNumber() + Double.parseDouble(view.textField.getText()));
+                    if (Double.toString(model.getAnswer()).endsWith(".0")) {
+                        view.textField.setText(Double.toString(model.getAnswer()).replace(".0", ""));
+                    } else {
+                        view.textField.setText(Double.toString(model.getAnswer()));
+                    }
+                    view.label.setText("on");
+                    break;
+                case 2:
+                    model.setAnswer(model.getNumber() - Double.parseDouble(view.textField.getText()));
+                    if (Double.toString(model.getAnswer()).endsWith(".0")) {
+                        view.textField.setText(Double.toString(model.getAnswer()).replace(".0", ""));
+                    } else {
+                        view.textField.setText(Double.toString(model.getAnswer()));
+                    }
+                    view.label.setText("on");
+                    break;
+                case 3:
+                    model.setAnswer(model.getNumber() * Double.parseDouble(view.textField.getText()));
+                    if (Double.toString(model.getAnswer()).endsWith(".0")) {
+                        view.textField.setText(Double.toString(model.getAnswer()).replace(".0", ""));
+                    } else {
+                        view.textField.setText(Double.toString(model.getAnswer()));
+                    }
+                    view.label.setText("on");
+                    break;
+                case 4:
+                    model.setAnswer(model.getNumber() / Double.parseDouble(view.textField.getText()));
+                    if (Double.toString(model.getAnswer()).endsWith(".0")) {
+                        view.textField.setText(Double.toString(model.getAnswer()).replace(".0", ""));
+                    } else {
+                        view.textField.setText(Double.toString(model.getAnswer()));
+                    }
+                    view.label.setText("on");
+                    break;
+
             }
-            int cur = Integer.parseInt(view.textField.getText());
-            if (cur == model.getGuess()) {
-                view.label.setText("Wictory");
-                view.disable();
-            }
-            if (cur > model.getGuess()) {
-                view.label.setText("Decrease your number");
-            }
-            if (cur < model.getGuess()) {
-                view.label.setText("Encrease your number");
-            }
-            view.textField.setText("0");
-            model.setAmount(model.getAmount()+1);
         }
     }
 }
+

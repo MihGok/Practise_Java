@@ -8,9 +8,7 @@ import java.awt.event.*;
 import java.util.Random;
 
 public class Game implements ActionListener {
-    double number, answer;
     int amount = 1;
-    boolean isTimerRunning = false;
     JFrame frame;
     int guess;
     JLabel label = new JLabel();
@@ -202,7 +200,6 @@ public class Game implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == onRadioButton) {
-
             enable();
         } else if (source == offRadioButton) {
 

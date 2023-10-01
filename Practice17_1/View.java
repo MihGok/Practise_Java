@@ -170,7 +170,6 @@ public class View {
         onRadioButton.setEnabled(true);
         onRadioButton.setForeground(Color.GREEN);
         offRadioButton.setEnabled(false);
-        textField.setText("Game is turned off");
         textField.setForeground(Color.RED);
         buttonClear.setEnabled(false);
         buttonDelete.setEnabled(false);

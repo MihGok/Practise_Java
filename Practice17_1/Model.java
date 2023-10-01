@@ -1,7 +1,7 @@
 package Practise_Java.Practice17_1;
 
 public class Model {
-    private String toOut = "Welcome to ";
+    private String toOut = "Изыйди из ";
     private int amount = 1;
     private int guess;
 
