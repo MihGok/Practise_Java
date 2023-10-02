@@ -41,12 +41,18 @@ class Tester extends Exception {
         Tester test = new Tester();
         List<Student> arr = new ArrayList<Student>();
         List<Student> arr1 = new ArrayList<Student>();
-        test.update(arr, new Student(1, "Oleg", "15", "45", 1, 64));
-        test.update(arr, new Student(1, "Igor", "15", "45", 1, 18));
-        test.update(arr, new Student(1, "Misha", "15", "45", 1, 74));
-        test.update(arr1, new Student(1, "Nikita", "15", "45", 2, 37));
-        test.update(arr1, new Student(1, "Kirill", "15", "45", 2, 94));
-        test.update(arr1, new Student(1, "Vitalya", "15", "45", 2, 5));
+        Student oleg = new Student(1, "Oleg", "15", "45", 1, 64);
+        Student igor = new Student(1, "Igor", "15", "45", 1, 18);
+        test.update(arr, oleg);
+        test.update(arr,igor);
+        Student misha =  new Student(1, "Misha", "15", "45", 1, 74);
+        test.update(arr,misha);
+        Student nikita = new Student(1, "Nikita", "15", "45", 2, 37);
+        test.update(arr1, nikita);
+        Student kirill = new Student(1, "Kirill", "15", "45", 2, 94);
+        test.update(arr1, kirill);
+        Student vitalya = new Student(1, "Vitalya", "15", "45", 2, 5);
+        test.update(arr1, vitalya);
         Collections.sort(arr1);
         System.out.println("Sorted list of the second group is: ");
         test.output(arr1);
@@ -56,6 +62,7 @@ class Tester extends Exception {
         test.output(fin);
         Student alex = new Student(1, "Oleg", "15", "45", 1, 64);
         try {
+            System.out.println(test.lookFor(arr1,misha));
             System.out.println(test.lookFor(arr1, alex));
         } catch (Tester e) {
             System.out.println("He doesnot exist");
