@@ -62,10 +62,10 @@ class Tester extends Exception {
         test.output(fin);
         Student alex = new Student(1, "Oleg", "15", "45", 1, 64);
         try {
-            System.out.println(test.lookFor(arr1,misha));
+            System.out.println(test.lookFor(arr1,vitalya));
             System.out.println(test.lookFor(arr1, alex));
         } catch (Tester e) {
-            System.out.println("He doesnot exist");
+            System.out.println("He doesn't exist");
         }
     }
 }

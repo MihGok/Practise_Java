@@ -42,7 +42,7 @@ public class Game implements ActionListener {
         int curX = MouseInfo.getPointerInfo().getLocation().x;
         int curY = MouseInfo.getPointerInfo().getLocation().y;
         if (curY > 600) {
-            return "Север";
+            return "Юг";
         } else {
             if (curY > 180 & curY < 600 & curX > 400 & curX < 615) {
                 return "Запад";
@@ -51,7 +51,7 @@ public class Game implements ActionListener {
                     return "Восток";
                 } else {
                     if (curY < 180) {
-                        return "Юг";
+                        return "Север";
                     } else {
                         return "Центр";
                     }

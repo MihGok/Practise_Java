@@ -4,7 +4,7 @@ import java.util.LinkedList;
 class ArrayQueueModel {
      private int a = 1;
      private int b = 2;
-     private int c =3;
+     private int c = 3;
 
     public int getA() {
         return a;

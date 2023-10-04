@@ -37,7 +37,7 @@ public class Controller implements MouseMotionListener, ActionListener {
     }
     public String Check(int curX, int curY) {
         if (curY > 600) {
-            return "Север";
+            return "Юг";
         } else {
             if (curY > 180 & curY < 600 & curX > 400 & curX < 615) {
                 return "Запад";
@@ -46,7 +46,7 @@ public class Controller implements MouseMotionListener, ActionListener {
                     return "Восток";
                 } else {
                     if (curY < 180) {
-                        return "Юг";
+                        return "Север";
                     } else {
                         return "Центр";
                     }
