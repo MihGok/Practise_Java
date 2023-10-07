@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class Game implements ActionListener {
+public class Game implements ActionListener{
     int amount = 1;
     JFrame frame;
     int guess;
@@ -41,24 +41,17 @@ public class Game implements ActionListener {
     public String CheckPos() {
         int curX = MouseInfo.getPointerInfo().getLocation().x;
         int curY = MouseInfo.getPointerInfo().getLocation().y;
+        if (curX==0 | curX ==800){return "Outside";}
         if (curY > 600) {
             return "Юг";
+        } else if (curY < 180) {
+            return "Север";
+        } else if (curX > 995 & curX < 1195 & curY < 600 & curX > 180) {
+            return "Восток";
+        } else if (curY > 180 & curY < 600 & curX > 400 & curX < 615 ) {
+            return "Запад";
         } else {
-            if (curY > 180 & curY < 600 & curX > 400 & curX < 615) {
-                return "Запад";
-            } else {
-                if (curX > 995 & curX < 1195 & curY < 600 & curX > 180) {
-                    return "Восток";
-                } else {
-                    if (curY < 180) {
-                        return "Север";
-                    } else {
-                        return "Центр";
-                    }
-                }
-
-
-            }
+            return "Центр";
         }
     }
 
@@ -71,6 +64,32 @@ public class Game implements ActionListener {
     public void prepareGUI() {
         frame = new JFrame();
         frame.setBackground(Color.WHITE);
+        frame.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                    buttonCenter.setText("Welcome to outside");
+            }
+        });
         frame.addMouseMotionListener(new MouseMotionListener() {
 
             @Override

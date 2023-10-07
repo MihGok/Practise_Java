@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 public class Calculator implements ActionListener {
     double number, answer;
+    boolean changeable = false;
     int calculation;
-
     JFrame frame;
     JLabel label = new JLabel();
     JTextField textField = new JTextField();
@@ -66,7 +66,6 @@ public class Calculator implements ActionListener {
         textField.setEditable(false);
         textField.setHorizontalAlignment(SwingConstants.RIGHT);
         frame.add(textField);
-
         onRadioButton.setBounds(10, 95, 60, 30);
         onRadioButton.setSelected(true);
         onRadioButton.setFont(new Font("Arial", Font.BOLD, 14));
@@ -255,7 +254,11 @@ public class Calculator implements ActionListener {
             if (textField.getText().length() > 22) {
             } else {
                 if (source == buttonOne) {
-                    if (textField.getText().length() == 1) {
+                    if (changeable){
+                        textField.setText("1");
+                        changeable = false;
+                    }
+                    else if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
                                 textField.setText(textField.getText() + "1");
@@ -269,7 +272,11 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "1");
                     }
                 } else if (source == buttonTwo) {
-                    if (textField.getText().length() == 1) {
+                    if (changeable){
+                        textField.setText("2");
+                        changeable = false;
+                    }
+                    else  if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
                                 textField.setText(textField.getText() + "2");
@@ -283,7 +290,11 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "2");
                     }
                 } else if (source == buttonThree) {
-                    if (textField.getText().length() == 1) {
+                    if (changeable){
+                        textField.setText("3");
+                        changeable = false;
+                    }
+                        else if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
                                 textField.setText(textField.getText() + "3");
@@ -297,7 +308,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "3");
                     }
                 } else if (source == buttonFour) {
-                    if (textField.getText().length() == 1) {
+                    if (changeable){
+                        textField.setText("4");
+                        changeable = false;
+                    }else if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
                                 textField.setText(textField.getText() + "4");
@@ -311,7 +325,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "4");
                     }
                 } else if (source == buttonFive) {
-                    if (textField.getText().length() == 1) {
+                    if (changeable){
+                        textField.setText("5");
+                        changeable = false;
+                    }else if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
                                 textField.setText(textField.getText() + "5");
@@ -325,6 +342,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "5");
                     }
                 } else if (source == buttonSix) {
+                    if (changeable){
+                        textField.setText("6");
+                        changeable = false;
+                    }else
                     if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
@@ -339,6 +360,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "6");
                     }
                 } else if (source == buttonSeven) {
+                    if (changeable){
+                        changeable = false;
+                        textField.setText("7");
+                    }else
                     if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
@@ -353,6 +378,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "7");
                     }
                 } else if (source == buttonEight) {
+                    if (changeable){
+                        textField.setText("8");
+                        changeable = false;
+                    }else
                     if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
                             if (textField.getText().contains(".")) {
@@ -367,6 +396,10 @@ public class Calculator implements ActionListener {
                         textField.setText(textField.getText() + "8");
                     }
                 } else if (source == buttonNine) {
+                    if (changeable){
+                        textField.setText("9");
+                        changeable = false;
+                    }else
                     System.out.println(textField.getText().length());
                     if (textField.getText().length() == 1) {
                         if (textField.getText().contains("0")) {
@@ -393,25 +426,29 @@ public class Calculator implements ActionListener {
             } else if (source == buttonPlus) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText("");
+                textField.setText(Double.toString(number).replaceAll(".0",""));
                 label.setText(str + "+");
+                changeable = true;
 
             } else if (source == buttonMinus) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText("");
+                textField.setText(Double.toString(number).replaceAll(".0",""));
+                changeable = true;
                 label.setText(str + "-");
             } else if (source == buttonMul) {
                 System.out.println("Operation " + oper + "  " + res);
                 String str = textField.getText();
-                number = Double.parseDouble(textField.getText());
-                textField.setText("");
+                number = Double.parseDouble(textField.getText().replaceAll(".0",""));
+                textField.setText(Double.toString(number));
+                changeable = true;
                 label.setText(str + "X");
 
             } else if (source == buttonDiv) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText("");
+                textField.setText(Double.toString(number).replaceAll(".0",""));
+                changeable = true;
                 label.setText(str + "/");
             } else if (source == buttonSqrt) {
                 number = Double.parseDouble(textField.getText());
@@ -453,6 +490,7 @@ public class Calculator implements ActionListener {
                     case 1:
                         if (textField.getText().length() == 0) {
                             System.out.println("Nice");
+
                             answer = number * 2;
                         } else {
                             answer = number + Double.parseDouble(textField.getText());

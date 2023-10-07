@@ -11,6 +11,7 @@ class Add extends JFrame implements MouseListener,MouseMotionListener{
     Integer number;
     int count = 0;
     int cur;
+    JFrame frame;
     String curr;
     boolean res = false;
     JTextArea jta1 = new JTextArea(20, 45);
@@ -19,37 +20,13 @@ class Add extends JFrame implements MouseListener,MouseMotionListener{
     int curX;
     int curY;
     public Add() {
-        super("Example");
+        jta1.setEditable(false);
+        jta1.setBounds(50,0,60,500);
         Random rand = new Random();
+        button.setBounds(300,650,100,50);
         number = rand.nextInt(0, 20);
         setSize(800, 800);
-        JButton buttonNAO = new JButton("САО");
-        JButton buttonZAO = new JButton("ЗАО");
-        JButton buttonEAO = new JButton("ЮАО");
-        JButton buttonWAO = new JButton("ВАО");
-        JButton buttonCENTER = new JButton("ЦАО");
-
-        buttonNAO.setBounds(800, 430, 60, 40);
-        buttonNAO.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonNAO.setForeground(Color.RED);
-        buttonZAO.setBounds(100, 430, 60, 40);
-        buttonZAO.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonZAO.setForeground(Color.RED);
-        buttonEAO.setBounds(300, 430, 60, 40);
-        buttonEAO.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonEAO.setForeground(Color.RED);
-        buttonWAO.setBounds(500, 430, 60, 40);
-        buttonWAO.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonWAO.setForeground(Color.RED);
-        buttonCENTER.setBounds(400, 430, 60, 40);
-        buttonCENTER.setFont(new Font("Arial", Font.BOLD, 20));
-        buttonCENTER.setForeground(Color.RED);
         setLayout(new FlowLayout());
-        add(buttonNAO);
-        add(buttonEAO);
-        add(buttonCENTER);
-        add(buttonWAO);
-        add(buttonZAO);
         add(button);
         add(jta1);
         jta1.append("Hello it is guess game. Enter your digit between 0 and 20");
