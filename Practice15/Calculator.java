@@ -426,28 +426,28 @@ public class Calculator implements ActionListener {
             } else if (source == buttonPlus) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText(Double.toString(number).replaceAll(".0",""));
+                textField.setText(Double.toString(number).replaceAll("0.",""));
                 label.setText(str + "+");
                 changeable = true;
 
             } else if (source == buttonMinus) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText(Double.toString(number).replaceAll(".0",""));
+                textField.setText(Double.toString(number).replaceAll("0.",""));
                 changeable = true;
                 label.setText(str + "-");
             } else if (source == buttonMul) {
                 System.out.println("Operation " + oper + "  " + res);
                 String str = textField.getText();
-                number = Double.parseDouble(textField.getText().replaceAll(".0",""));
+                number = Double.parseDouble(textField.getText().replaceAll("0.",""));
                 textField.setText(Double.toString(number));
                 changeable = true;
-                label.setText(str + "X");
+                label.setText(str + "x");
 
             } else if (source == buttonDiv) {
                 String str = textField.getText();
                 number = Double.parseDouble(textField.getText());
-                textField.setText(Double.toString(number).replaceAll(".0",""));
+                textField.setText(Double.toString(number).replaceAll("0.",""));
                 changeable = true;
                 label.setText(str + "/");
             } else if (source == buttonSqrt) {
@@ -480,7 +480,7 @@ public class Calculator implements ActionListener {
                     calculation = 1;
                 } else if (oper.equals("-")) {
                     calculation = 2;
-                } else if (oper.equals("X")) {
+                } else if (oper.equals("x")) {
                     calculation = 3;
                 } else {
                     calculation = 4;

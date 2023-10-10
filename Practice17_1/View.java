@@ -56,7 +56,7 @@ public class View {
 
     public void addComponents() {
         label.setText("Enter your number");
-        label.setBounds(350, 160, 300, 50);
+        label.setBounds(330, 230, 300, 50);
         label.setFont(new Font("Arial", Font.BOLD, 16));
         label.setForeground(Color.GREEN);
         frame.add(label);
@@ -75,7 +75,7 @@ public class View {
         buttonGroup.add(offRadioButton);
         buttonCenter.setForeground(Color.BLACK);
         buttonCenter.setBackground(new Color(238, 238, 238));
-        buttonCenter.setBounds(350, 300, 170, 40);
+        buttonCenter.setBounds(330, 300, 170, 40);
         buttonCenter.setEditable(false);
         buttonCenter.setBorder((javax.swing.BorderFactory.createEmptyBorder()));
         frame.add(buttonCenter);
