@@ -1,9 +1,11 @@
 package Practise_Java.Practice20;
 
 
-public class GenericBox<T,V ,K> {
+import java.io.Serializable;
+
+public class GenericBox<T ,V ,K> implements Comparable<T>, Serializable{
     // Private переменная класса
-    private T content;
+    private T  content;
     private K count;
     private V toAdd;
     // конструктор
@@ -23,5 +25,10 @@ public class GenericBox<T,V ,K> {
 
     public String toString() {
         return content + " (" + content.getClass() + ")" + "        " + toAdd + " (" + toAdd.getClass() + ")" + "     " + count + " (" + count.getClass() +")";
+    }
+
+    @Override
+    public int compareTo(T o) {
+        return 0;
     }
 }
