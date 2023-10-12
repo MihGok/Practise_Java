@@ -51,8 +51,9 @@ public class View {
     }
 
     public void addComponents() {
-        label.setBounds(230, 0, 80, 50);
+        label.setBounds(100, 0, 150, 50);
         label.setForeground(Color.GREEN);
+        label.setHorizontalAlignment(JTextField.RIGHT);
         frame.add(label);
         textField.setBounds(10, 40, 270, 40);
         textField.setFont(new Font("Arial", Font.BOLD, 20));

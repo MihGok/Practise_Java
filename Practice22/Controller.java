@@ -43,6 +43,7 @@ public class Controller implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
+        System.out.println(view.textField.getText());
         if (source == view.onRadioButton) {
             view.enable();
         } else if (source == view.offRadioButton) {
@@ -50,6 +51,8 @@ public class Controller implements ActionListener {
         } else if (source == view.buttonClear) {
             view.label.setText("on");
             view.textField.setText("0");
+        }
+        if (view.textField.getText().equals("Infinity") | view.textField.getText().equals("NaN")) {
         } else if (source == view.buttonDelete) {
             int length = view.textField.getText().length();
             int number = length - 1;
@@ -62,21 +65,19 @@ public class Controller implements ActionListener {
                 view.label.setText("on");
             }
         } else if (source == view.buttonZero) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("0");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().equals("0")) {
+            } else if (view.textField.getText().equals("0")) {
                 return;
             } else {
                 view.textField.setText(view.textField.getText() + "0");
             }
         } else if (source == view.buttonOne) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("1");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "1");
@@ -90,11 +91,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "1");
             }
         } else if (source == view.buttonTwo) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("2");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "2");
@@ -108,11 +108,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "2");
             }
         } else if (source == view.buttonThree) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("3");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "3");
@@ -126,11 +125,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "3");
             }
         } else if (source == view.buttonFour) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("4");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "4");
@@ -144,11 +142,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "4");
             }
         } else if (source == view.buttonFive) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("5");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "5");
@@ -162,11 +159,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "5");
             }
         } else if (source == view.buttonSix) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("6");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "6");
@@ -180,11 +176,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "6");
             }
         } else if (source == view.buttonSeven) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("7");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "7");
@@ -198,11 +193,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "7");
             }
         } else if (source == view.buttonEight) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("8");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "8");
@@ -216,11 +210,10 @@ public class Controller implements ActionListener {
                 view.textField.setText(view.textField.getText() + "8");
             }
         } else if (source == view.buttonNine) {
-            if (model.isChangeable()){
+            if (model.isChangeable()) {
                 view.textField.setText("9");
                 model.setChangeable(false);
-            }else
-            if (view.textField.getText().length() == 1) {
+            } else if (view.textField.getText().length() == 1) {
                 if (view.textField.getText().contains("0")) {
                     if (view.textField.getText().contains(".")) {
                         view.textField.setText(view.textField.getText() + "9");
@@ -243,7 +236,7 @@ public class Controller implements ActionListener {
         } else if (source == view.buttonPlus) {
             String str = view.textField.getText();
             model.setNumber(Double.parseDouble(view.textField.getText()));
-            view.textField.setText(Double.toString(model.getNumber()).replaceAll(".0",""));
+            view.textField.setText(Double.toString(model.getNumber()).replaceAll(".0", ""));
             model.setChangeable(true);
             view.label.setText(str + "+");
             model.setCalculation(1);
@@ -251,21 +244,21 @@ public class Controller implements ActionListener {
         } else if (source == view.buttonMinus) {
             String str = view.textField.getText();
             model.setNumber(Double.parseDouble(view.textField.getText()));
-            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.",""));
+            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.", ""));
             model.setChangeable(true);
             view.label.setText(str + "-");
             model.setCalculation(2);
         } else if (source == view.buttonMul) {
             String str = view.textField.getText();
             model.setNumber(Double.parseDouble(view.textField.getText()));
-            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.",""));
+            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.", ""));
             model.setChangeable(true);
             view.label.setText(str + "x");
             model.setCalculation(3);
         } else if (source == view.buttonDiv) {
             String str = view.textField.getText();
             model.setNumber(Double.parseDouble(view.textField.getText()));
-            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.",""));
+            view.textField.setText(Double.toString(model.getNumber()).replaceAll("0.", ""));
             model.setChangeable(true);
             view.label.setText(str + "/");
             model.setCalculation(4);
@@ -285,8 +278,7 @@ public class Controller implements ActionListener {
                 view.textField.setText(string);
             }
             view.label.setText(str + "**2");
-        }
-        else if (source == view.buttonReciprocal) {
+        } else if (source == view.buttonReciprocal) {
             model.setNumber(Double.parseDouble(view.textField.getText()));
             double reciprocal = 1 / model.getNumber();
             String string = Double.toString(reciprocal);
@@ -295,6 +287,7 @@ public class Controller implements ActionListener {
             } else {
                 view.textField.setText(string);
             }
+            view.label.setText("1/" + Double.toString(model.getNumber()));
         } else if (source == view.buttonEqual) {
             //Setting functionality for equal(=) button
             switch (model.getCalculation()) {
