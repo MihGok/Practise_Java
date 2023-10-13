@@ -78,11 +78,12 @@ public class Controller implements MouseMotionListener, ActionListener {
             Integer cur = 0;
             try{
                 cur =  Integer.parseInt(txt);
-                System.out.println(cur);}catch (Exception y ){
+                System.out.println(cur);}
+            catch (Exception y ){
                 view.textField.setText("You entered not a number");
             }
             if (cur == model.getGuess()) {
-                view.label.setText("Wictory");
+                view.label.setText("Victory");
                 view.disable();
             }
             if (cur > model.getGuess()) {

@@ -10,7 +10,7 @@ class INN extends Exception {
     public static void isValid(String inn) throws INN {
         if (inn.length() != 10) {
             if (inn.length() != 12) {
-                throw new INN("There must be 10 OR 12 characters. And your one is " + inn.length());
+                throw new INN("There must be 10 or 12 characters. And your one is " + inn.length());
             }
         }
         try {

@@ -3,7 +3,7 @@ package Practise_Java.Practice20;
 
 import java.io.Serializable;
 
-public class GenericBox<T ,V ,K> implements Comparable<T>, Serializable{
+public class GenericBox<T extends Comparable<T>,V extends Serializable,K extends Animal>{
     // Private переменная класса
     private T  content;
     private K count;
@@ -26,8 +26,6 @@ public class GenericBox<T ,V ,K> implements Comparable<T>, Serializable{
     public String toString() {
         return content + " (" + content.getClass() + ")" + "        " + toAdd + " (" + toAdd.getClass() + ")" + "     " + count + " (" + count.getClass() +")";
     }
-
-    @Override
     public int compareTo(T o) {
         return 0;
     }

@@ -64,7 +64,8 @@ public class Controller implements ActionListener {
             if (view.textField.getText().endsWith("0")) {
                 view.label.setText("on");
             }
-        } else if (source == view.buttonZero) {
+        }
+        else if (source == view.buttonZero) {
             if (model.isChangeable()) {
                 view.textField.setText("0");
                 model.setChangeable(false);

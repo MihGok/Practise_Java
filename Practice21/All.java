@@ -14,8 +14,13 @@ public class All {
         return list;
 
     }
-    public static <T> void toOut(int index,T array[]){
-        System.out.println(array[index]);
+
+    public static <T> void toOut(int index, T array[]) {
+        try{
+        System.out.println(array[index]);}
+        catch (Exception e){
+            System.out.println("Index out of range");
+        }
     }
 
     public static void main(String[] args) {
@@ -28,6 +33,6 @@ public class All {
         System.out.println("List1: " + list1);
         System.out.println("List2: " + list2);
         All all1 = new All();
-        all1.toOut(2,number);
+        all1.toOut(2, number);
     }
 }

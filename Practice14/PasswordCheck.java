@@ -22,7 +22,7 @@ public class PasswordCheck {
     public static void main(String[]args){
         System.out.println("Enter your password");
         Scanner input = new Scanner(System.in);
-        String passsword = input.nextLine();
-        System.out.println(Check(passsword));
+        String password = input.nextLine();
+        System.out.println(Check(password));
     }
 }
